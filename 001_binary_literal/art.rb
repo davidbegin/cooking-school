@@ -1,6 +1,7 @@
 class Untitled1
   UPPER_LIMIT_BASE_LIMIT = 36
-  UPPER_SCREEN_LENGTH = 15
+  UPPER_SCREEN_LENGTH    = 15
+  PRINT_DELAY            = 0.02
 
   def mission!
     <<-MISSION
@@ -31,12 +32,11 @@ class Untitled1
 
   def art
     sleep 1
-    puts mission!; sleep 10
+    puts mission!; sleep 15
     (2..UPPER_LIMIT_BASE_LIMIT).each do |w|
       (0..UPPER_SCREEN_LENGTH).each do |j|
-        r = j.to_s(w)
-        print " #{r} "
-        sleep 0.02
+        print " #{j.to_s(w)}"
+        sleep PRINT_DELAY
       end
       puts
     end
