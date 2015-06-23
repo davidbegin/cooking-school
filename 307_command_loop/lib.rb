@@ -2,7 +2,14 @@ class CommandLoop
   def start
     while (print "> "; input = gets) do
       input.chomp!.downcase!
-      puts input.inspect
+
+      case input
+      when "time" then puts Time.now
+      when "quit", "q", "exit" then break
+      else puts "I don't know that command"
+      end
+
+      puts "Input was: #{input.inspect}"
     end
   end
 end
