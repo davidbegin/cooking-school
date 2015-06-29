@@ -11,7 +11,8 @@ class Child
   def_delegators :@parent, :last_name
 
   # WOAH crazy
-  def_delegators "@parent.address", :street
+  # def_delegators "@parent.address", :street
+  def_delegator "@parent.address", :street, :street_address
 end
 
 class Parent
@@ -34,5 +35,5 @@ parent = Parent.new("Begin", address)
 child  = Child.new(parent)
 
 puts "Child's last name: " + child.last_name
-puts "Child's street: " + child.street
+puts "Child's street: " + child.street_address
 
